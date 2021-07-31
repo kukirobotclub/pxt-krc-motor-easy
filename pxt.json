@@ -1,0 +1,19 @@
+{
+    "name": "pxt-krc-motor",
+    "version": "0.0.8",
+    "description": "",
+    "dependencies": {
+        "core": "*",
+        "radio": "*"
+    },
+    "files": [
+        "README.md",
+        "main.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": false,
+    "installedVersion": "workspace:c5f9050f-8ada-4557-3887-a239481c584d",
+    "preferredEditor": "tsprj"
+}
