@@ -966,7 +966,7 @@ namespace KRCmotor {
     /*---------- シリアルモニタブロック ----------*/
 
     // CRまでのデータを返す　LOCAL ECHOあり
-    function read_command_from_serial(mode: number): string {
+    function read_command_from_serial(): string {
 	    let c=""
         let char_cnt = 0
         let rtn_str = ""
