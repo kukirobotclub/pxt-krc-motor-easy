@@ -9,11 +9,12 @@
  * Version 2019-11-06 0.50 記録時無操作で終了でターミネータを書かない
  * Version 2020-07-14 1.00 簡単制御ブロック追加、詳細ブロックはhidden
  * Version 2020-11-22 1.01 EEPの書き込みにbasic.pause(5)を追加
+ * Version 2023-10-16 1.02 EEPのFunctionエリアを8バイトに変更
 */
 //% weight=10 color=#ADB367 icon="\u24C0" block="KRC-TOOL"
 namespace KRCmotor {
     /* Version の定義 */
-    const KRC_fw_version = 101	// ソフトのバージョン
+    const KRC_fw_version = 102	// ソフトのバージョン
 
     /* ４つのDCモータの選択 */
     export enum Motors {
@@ -67,7 +68,7 @@ namespace KRCmotor {
     const EEPROM_I2C_ADDR = 80	// EEPのI2Cアドレス
     const MAX_EEP_TIME = 65500	// EEP最大記録時間 655秒
     const MAX_EEP_ADDR = 32760	// EEP最大アドレス 32760 byte　8190 dword
-    const FUNC_EEP_ADDR = 32764	// EEPファンクション記録アドレス 32764-7 7FF8h-7FFFh 4byte
+    const FUNC_EEP_ADDR = 32760	// EEPファンクション記録アドレス 32760-7 7FF0h-7FFFh 4byte
     let EEPerr = 0				// eepromの状態　0:OK 1:EOF 2:Error
     let eep_write_addr = 0		// EEPROMの書き込みアドレス
     let eep_mode = 0    		// 状態 0:待機 1:読み込み 2:書き込み
@@ -807,27 +808,28 @@ namespace KRCmotor {
 
     /**
      * write a byte to function area address
-     * @param addr function number 0-3, 0-3 eg: 1
+     * @param addr function number 0-7, 0-7 eg: 1
      * @param dat is the data will be write, eg: 5
      */
     //% blockId="WriteFunc" block="ファンクション番号 %addr|保存データ %dat"
     //% weight=69 
     //% blockHidden=true
     export function eep_write_func(addr: number, dat: number): void {
-        if (addr >= 0 && addr <= 3) {
+        if (addr >= 0 && addr <= 7) {
             eep_write_byte(FUNC_EEP_ADDR + addr, dat)
+            basic.pause(5)
         }
     }
 
     /**
      * read a byte from special address
-     * @param addr function number 0-3, eg: 1
+     * @param addr function number 0-7, eg: 1
      */
     //% blockId="ReadFunc" block="ファンクション番号 %addr"
     //% weight=68 
     //% blockHidden=true
     export function eep_read_func(addr: number): number {
-        if (addr >= 0 && addr <= 3) {
+        if (addr >= 0 && addr <= 7) {
             //serial.writeNumber(addr)
             //serial.writeString("\n\r")
             basic.pause(5)       // なぜかwait入れないと255が返る
