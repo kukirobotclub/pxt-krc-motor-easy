@@ -10,11 +10,12 @@
  * Version 2020-07-14 1.00 簡単制御ブロック追加、詳細ブロックはhidden
  * Version 2020-11-22 1.01 EEPの書き込みにbasic.pause(5)を追加
  * Version 2023-10-16 1.02 EEPのFunctionエリアを8バイトに変更
+ * Version 2023-11-20 1.03 隠れブロックをその他…に表示advanced=true
 */
 //% weight=10 color=#ADB367 icon="\u24C0" block="KRC-TOOL"
 namespace KRCmotor {
     /* Version の定義 */
-    const KRC_fw_version = 102	// ソフトのバージョン
+    const KRC_fw_version = 103	// ソフトのバージョン
 
     /* ４つのDCモータの選択 */
     export enum Motors {
@@ -246,7 +247,8 @@ namespace KRCmotor {
 
     //% weight=79
     //% blockId=motor_SW_detecting block="コントローラ入力あり?"
-    //% blockHidden=true
+    //% blockHidden=false
+    //% advanced=true
     export function SW_detecting(): boolean {
         let chg = 0
         if (set_swstatus_without_chattering()) {
@@ -275,7 +277,8 @@ namespace KRCmotor {
     */
     //% weight=78
     //% blockId=motor_SW_data block="コントローラデータ"
-    //% blockHidden=true
+    //% blockHidden=false
+    //% advanced=true
     export function ControllerButtonData(): number {
         // アナログコントローラのボタンデータを返す
         //  SW_detecting()で検出されたボタンデータのみを返す
@@ -286,7 +289,8 @@ namespace KRCmotor {
     //% weight=77
     //% blockId=motor_SW_bit block="コントローラ押されているか？ ボタン|%ControllerSw"
     //% inlineInputMode=inline
-    //% blockHidden=true
+    //% blockHidden=false
+    //% advanced=true
     export function isControllerButtonBit(SwBit: ControllerSw): boolean {
         if (sw_status & SwBit) return true
         return false
@@ -306,7 +310,8 @@ namespace KRCmotor {
 
     //% weight=99
     //% blockId=motor_MotorOnOff block="モータON|%index|動作|%Dir"
-    //% blockHidden=true
+    //% blockHidden=false
+    //% advanced=true
     export function MotorOnOff(index: Motors, direction: Dir): void {
         if (index == 1) {	//Motor1
             if (direction == 1) {
@@ -441,7 +446,8 @@ namespace KRCmotor {
 
     //% weight=98
     //% blockId=motor_MotorStop block="モータ停止|%index"
-    //% blockHidden=true
+    //% blockHidden=false
+    //% advanced=true
     export function MotorStop(index: Motors): void {
         if (index == 1) {	//Motor1
             pins.digitalWritePin(DigitalPin.P8, 0)
@@ -467,7 +473,8 @@ namespace KRCmotor {
 
     //% weight=97
     //% blockId=motor_MotorWhole block="モータ一括ON|%motorall"
-    //% blockHidden=true
+    //% blockHidden=false
+    //% advanced=true
     export function MotorWhole(motorall: number): void {
         serial.writeString("MotorWhole=")
         serial.writeNumber(motorall)
