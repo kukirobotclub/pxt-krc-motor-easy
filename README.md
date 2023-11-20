@@ -42,3 +42,52 @@ Bitcom
 ・Ch4　P1,P2
 
 よってほかの用途でポートを使う場合は、併用できない<BR>
+
+
+
+------
+
+## その他のブロック
+
+その他のメニュー
+
+![](other_menu.png)
+
+### 1.モーターON/OFF
+![image](KRCmotorOn01.png)<BR>
+制御したいモータ番号を選択<BR>
+![image](KRCmotorOn02.png)<BR>
+回転方向を選択<BR>
+
+### 2.モーター停止
+![image](KRCmotorStop.png)<BR>
+停止したいモータ番号を選択<BR>
+
+### 3.モーター一括ON/OFF
+![image](KRCmotorWhole.png)<BR>
+一度に全モーターのON/OFFを行う<BR>
+４つのモーターを一度に設定したいときに１行でできる<BR>
+データは「モーター一括データ作成」で作成された形式<BR>
+
+### 4.モーター一括データ作成
+![image](KRCMakeMotorData.png)<BR>
+モーターの一括データを作成する<BR>
+
+### 5.コントローラパッド入力
+専用のコントロールパッドの入力を行う<BR>
+
+![image](KRCcontroller0.jpg)<BR>
+
+| 選択  | ボタン |      |
+| ---- | ------ | ---- |
+| SWA  |    A    | 左↑ボタン  |
+| SWB  |    B    | 左↓ボタン  |
+| SWC  |    C    | 左←ボタン  |
+| SWD  |    D    | 左→ボタン  |
+| SWE  |    E    | 右↑ボタン  |
+| SWF  |    F    | 右↓ボタン  |
+| SWG  |    G    | 右←ボタン  |
+| SWH  |    H    | 右→ボタン  |
+
+![image](KRCcontroller3.png)<BR>
+
