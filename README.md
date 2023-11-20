@@ -89,5 +89,7 @@ Bitcom
 | SWG  |    G    | 右←ボタン  |
 | SWH  |    H    | 右→ボタン  |
 
-![image](KRCcontroller3.png)<BR>
+必要なボタンを比較して判断する<BR>
+
+![image](controlpad_prg.png)<BR>
 
