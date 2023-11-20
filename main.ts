@@ -287,7 +287,7 @@ namespace KRCmotor {
     }
 
     //% weight=77
-    //% blockId=motor_SW_bit block="コントローラ押されているか？ ボタン|%ControllerSw"
+    //% blockId=motor_SW_bit block="コントローラボタン＝ ボタン|%ControllerSw"
     //% inlineInputMode=inline
     //% blockHidden=false
     //% advanced=true
