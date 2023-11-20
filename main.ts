@@ -537,7 +537,8 @@ namespace KRCmotor {
     //% weight=96
     //% blockId=motor_MakeMotorData block="モータデータ作成 M1|%Dir|M2|%Dir1|M3|%Dir2|M4|%Dir3"
     //% inlineInputMode=inline
-    //% blockHidden=true
+    //% blockHidden=false
+    //% advanced=true
     export function MakeMotorData(Motor1: Dir, Motor2: Dir1, Motor3: Dir2, Motor4: Dir3): number {
         serial.writeString("MakeMotorData=")
         serial.writeNumber(Motor1)
